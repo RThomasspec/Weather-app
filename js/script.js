@@ -7,18 +7,27 @@ const weatherIcon = document.querySelector(".weather-icon");
 
 async function checkWeather(city){
 
+ 
     // on attend l'objet response renvoyé par la méthode fecth
     const response = await fetch( UrlApi + city + "&appid=" + ApiKey);
+
+    if(response.status == 404){
+        document.querySelector(".weather").style.display = "none";
+        document.querySelector(".error").style.display = "block";
+    }
+    else{
+        document.querySelector(".error").style.display = "none";
     // L'objet Response contient diverses méthodes permettant d'extraire les données de la réponse,
     // Ces méthodes renvoient également des promesses, car elles peuvent impliquer des opérations asynchrones, telles que le téléchargement et le traitement du corps de la réponse.
     var data = await response.json();
+    console.log("succes");
 
     console.log(data);
    
     
 
     document.querySelector(".city").innerHTML = data.name;
-    document.querySelector(".temp").innerHTML = math.round(data.main.temp)+" °C";
+    document.querySelector(".temp").innerHTML = Math.round(data.main.temp)+" °C";
     document.querySelector(".humidity").innerHTML = data.main.humidity +" %";
     document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
     console.log(data.weather.main);
@@ -36,8 +45,8 @@ async function checkWeather(city){
     }
 
 
-    document.querySelector("weather").computedStyleMap.display = "block";
-  
+    document.querySelector(".weather").style.display = "block";
+}
 }
 
 searchBtn.addEventListener("click",() => {

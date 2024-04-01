@@ -26,6 +26,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    display: block;
 }
 
 .search input{
@@ -39,6 +40,10 @@ body{
     flex: 1;
     margin-right: 16px;
     font-size: 18px;    
+}
+
+.search input::placeholder{
+    font-size: 15px;
 }
 
 .search button{
@@ -97,4 +102,12 @@ body{
 
 .weather{
     display:none;
+}
+
+.error p{
+
+    text-align: left;
+    margin-left: 66px;
+    font-size: 14px;
+    margin-top: 10px;
 }
