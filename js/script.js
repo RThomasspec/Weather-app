@@ -20,9 +20,7 @@ async function checkWeather(city){
     // L'objet Response contient diverses méthodes permettant d'extraire les données de la réponse,
     // Ces méthodes renvoient également des promesses, car elles peuvent impliquer des opérations asynchrones, telles que le téléchargement et le traitement du corps de la réponse.
     var data = await response.json();
-    console.log("succes");
 
-    console.log(data);
    
     
 
